@@ -1,0 +1,39 @@
+THERE IS A QUICK TLDR AT BOTTOM FOR PEOPLE WHO DO NOT NEED A LOT OF DETAILS
+
+1) Place a RANGEFINDER right behind your pilot chair. Now make sure the range finder beam can just about get past the chair. The best way to do this is to not use the pilot chair stand, then you can put the rangefinder right behind and a bit below your chair and it will pass through clean in the middle and hit your endos legs if you sit in the chair. The second way of doing it is to move it down and to the side until it just passes by the side of the chair and hits the endos leg if you sit in it.
+
+2) Sit in your pilot chair and make sure your ship is NOT moving, now look at what range your rangefinder is reporting when it is hitting your leg and write this number down.
+
+3) Place a progressbar somewhere (or whatever you want your output to be) and name it SPDOMTR
+
+5) Place a button somewhere you name RF make sure its style is 1 (used to turn the system on/off)
+
+4) Name your RangeFinder RF and your RangeFinderDistance RFD
+
+Before we add in the actual speedometer code lets add in code that will help us determine what length the rangefinder beam needs to be, theres no point having it stick out several hundred meters in front of our ship if we're not in the pilot seat.
+
+Write this in a yolol chip (obviously needs to be somewhere that will execute the code too, like a rack etc):
+
+line1| :SPDOMTR=:RFD goto1
+
+Now get in your ship and just go maximum speed forward and see what value your speedometer is reporting, when you have that value change the RangeFinderSearchLength to that value+2
+
+Okay now we will make the actual speedometer, ready for how complicated and hard this will be? no? okay lets make it easy instead.
+
+line1|  a=0.288 b=2.7 c=b-a d=150
+line2|  x=((:RFD-a)/c)*d if x>160 or :RF<1 then x="ERROR" end :SPDOMTR=x goto2
+change a=0.288 to that zero distance we calculated before, the value of "RFD" when you are sitting in your pilot chair and the ship is standing still.
+TLDR:
+
+1) Place a rangefinder behind your pilot seat and move it until the rangefinder beam just makes it past the seat and can hit the foot of the pilot in the seat.
+
+2) Name it RF and change RangeFinderDistance to RFD
+
+3) Name a progressbar SPDOMTR and name a button RF
+
+4) Sit in your pilot chair and see what value of RFD is when your ship is not moving
+
+5) Put this code in a basic or better YOLOL chip, change "a=0.288" to be whatever the zero value of your RFD was
+
+line1|  a=0.288 b=2.7 c=b-a d=150
+line2|  x=((:RFD-a)/c)*d if x>160 or :RF<1 then x="ERROR" end :SPDOMTR=x goto2
