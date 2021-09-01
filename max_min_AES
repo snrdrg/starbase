@@ -1,0 +1,21 @@
+--MAX range aes
+r=:AESLB
+r=r*(r>=:AESRB)+:AESRB*(r<:AESRB)
+r=r*(r>=:AESRM)+:AESRM*(r<:AESRM)
+r=r*(r>=:AESRT)+:AESRT*(r<:AESRT) 
+r=r*(r>=:AEST)+:AEST*(r<:AEST)
+r=r*(r>=:AESB)+:AEST*(r<:AESB) 
+r=r*(r>=:AESLM)+:AESLM*(r<:AESLM)
+r=r*(r>=:AESLT)+:AESLT*(r<:AESLT)
+goto 1
+
+--MIN range aes
+r=:AESLB
+r=r*(r<=:AESRB)+:AESRB*(r>:AESRB)
+r=r*(r<=:AESRM)+:AESRM*(r>:AESRM)
+r=r*(r<=:AESRT)+:AESRT*(r>:AESRT) 
+r=r*(r<=:AEST)+:AEST*(r>:AEST)
+r=r*(r<=:AESB)+:AEST*(r>:AESB) 
+r=r*(r<=:AESLM)+:AESLM*(r>:AESLM)
+r=r*(r<=:AESLT)+:AESLT*(r>:AESLT)
+goto 1
