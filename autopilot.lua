@@ -14,4 +14,4 @@ goto (:nav*2+1)
 
 ---basic chip 3 - autopiloting stage
 goto (:nav+1)
-if :t_angle>10 then :fcuforward=25 else :fcuforward=100 end goto(:nav+1) 
+if :t_angle>10 then :fcuforward=25 else :fcuforward=100 end goto(:nav+1)
